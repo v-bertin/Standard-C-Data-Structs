@@ -1,11 +1,11 @@
-CC=gcc
-CFLAGS=-g
+CC			= gcc
+CC_OPTS  = -Wall -Wextra -Werror -O0 -g
 
-DEPS=dict.h
-BINDIR=bin
+INCLUDEDIR	= ..
+BINDIR		= bin
 
 %.o: %.c 
-	$(CC) -c -o $(BINDIR)/$@ $< $(CFLAGS)
+	$(CC) -I $(INCLUDEDIR) -c -o $(BINDIR)/$@ $< $(CC_OPTS)
 
 clean:
 	rm $(BINDIR)/*.o

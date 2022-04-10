@@ -1,25 +1,23 @@
-#include <stdio.h>
+#include "libs.h"
 
 #include "dict.h"
 #include "json_parser.h"
 
 int main(void) 
 {
-    dict * fileContent;
+   dict * fileContent;
 
-    fileContent = get_content("test_parser.json");
+   fileContent = get_content ("test_parser.json");
 
-    if (NULL == fileContent)
-    {
-       printf("Test parser failed\n");
-       return -1;
-    }
+   if (NULL == fileContent)
+   {
+      printf("Test parser failed\n");
+      return -1;
+   }
 
-    print_dict (fileContent);
+   print_dict (fileContent);
 
-    suppr (&fileContent);
+   suppr_dict (&fileContent);
 
-    print_dict (fileContent);
-
-    return 0;
+   return 0;
 }

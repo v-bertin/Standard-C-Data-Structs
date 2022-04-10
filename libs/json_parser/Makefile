@@ -1,11 +1,11 @@
-CC=gcc
-CFLAGS=-g -I ../dict
+CC			= gcc
+CC_OPTS  = -Wall -Wextra -Werror -O0 -g
 
-DEPS=dict.h json_parser.h
-BINDIR=bin
+INCLUDEDIR	= ..
+BINDIR		= bin
 
 %.o: %.c
-	$(CC) -c -o $(BINDIR)/$@ $< $(CFLAGS)
+	$(CC) -I $(INCLUDEDIR) -I $(INCLUDEDIR)/dict -c -o $(BINDIR)/$@ $< $(CC_OPTS)
 
 clean:
 	rm $(BINDIR)/*.o
