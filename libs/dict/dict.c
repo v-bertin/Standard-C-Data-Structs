@@ -1,16 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "string.h"
 
 #include "dict.h"
 
 dict_elem* new_dict_elem(int key, char* value) {
     dict_elem *e = (dict_elem*) malloc(sizeof(dict_elem));
+    e->value = (char *) malloc (strlen (value));
 
     e->key = key;
-    e->value = value;
+    strcpy (e->value, value);
     e->next = NULL;
 
     return e;
+}
+
+dict * empty_dict (void) 
+{
+   dict *d = (dict*) malloc(sizeof(dict));
+
+   d->len = 0;
+   d->elem = NULL;
+
+   return d;
 }
 
 dict* new_dict(int key, char* value) {
@@ -31,6 +43,11 @@ void print_dict_from_dict_elem(dict_elem *d) {
 }
 
 void print_dict(dict *d) {
+    if (NULL == d)
+    {
+       printf ("Empty dict : nothing to print.\n");
+       return;
+    }
     dict_elem *e = d->elem;
     printf("{");
     while (e != NULL) {
@@ -75,21 +92,21 @@ void add(dict **d, int key, char* value) {
     dict_elem *current = (*d)->elem;
     dict_elem *new_elem = new_dict_elem(key, value);
 
-    if((*d)->elem == NULL) {
-        (*d)->elem == new_elem;
+    if(current == NULL) {
+        (*d)->elem = new_elem;
         return;
     }
 
     while(current->next != NULL) {
         if(current->key == key) {
-            current->value = value;
+            strcpy (current->value, value);
             return;
         } else {
             current = current->next;
         }
     } 
     if(current->key == key) {
-        current->value = value;
+        strcpy (current->value, value);
         return;
     }
     current->next = new_elem;
@@ -143,7 +160,10 @@ void suppr(dict **d) {
         else next = current->next;
         free(previous);
     }
-    free(*d);
+    (*d)->len = 0;
+    (*d)->elem = NULL;
+    free (*d);
+    *d = NULL;
 }
 
 int* get_keys(dict* d) {

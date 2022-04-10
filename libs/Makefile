@@ -1,4 +1,6 @@
-SUBDIRS=dict
+SUBDIRS=dict json_parser
+
+all: object
 
 mrproper:
 	for dir in $(SUBDIRS); do \

@@ -13,6 +13,7 @@ struct dict {
 
 typedef struct dict dict;
 
+dict* empty_dict (void);
 dict* new_dict(int key, char* value);
 dict_elem* new_dict_elem(int key, char* value);
 

@@ -21,4 +21,4 @@ I will thus try to share the resources I used, stackoverflow topics I digged in,
 
 # Use cases examples
 
-1. Dictionary : Parse a JSON file and get its content into a C dictionary.
+1. Dictionary : Parse a simple JSON file (only integer to string association) and get its content into a C dictionary.

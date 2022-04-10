@@ -1,0 +1,1 @@
+dict* get_content(char *filename);
