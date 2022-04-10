@@ -18,7 +18,15 @@ I will thus try to share the resources I used, stackoverflow topics I digged in,
 # Data structures actually provided by this repo :
 
 1. Dictionary (Python interface, implemented as a linked list of elements)
+1. Red Black Tree (Balanced binary tree)
 
 # Use cases examples
 
 1. Dictionary : Parse a simple JSON file (only integer to string association) and get its content into a C dictionary.
+
+# TODO
+
+* Propose appropriate tests for `json_parser` lib.
+* Correct error handling in `dict` and `json_parser` libs.
+* Add dedicated PRINT macros in `print.h` : `PRINT_ERROR`, `PRINT_OK`, `PRINT_INFO`, `PRINT_ASSERT`.
+* Choose appropriate open source license.

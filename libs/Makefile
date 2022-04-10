@@ -1,4 +1,4 @@
-SUBDIRS=dict json_parser
+SUBDIRS=dict json_parser red_black_tree
 
 all: object
 
